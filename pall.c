@@ -7,10 +7,10 @@
 void f_pall(stack_t **head, unsigned int number)
 {
 	stack_t *tmp = *head;
+	(void)number;
 
 	if (tmp == NULL)
-	{
-		fprintf(stderr, "Line %d: Stack Underflow\n", number);
+	{	
 		return;
 	}
 	while (tmp != NULL)
