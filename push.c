@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * f_push_stack - pushes onto a stack
+ * f_push - pushes onto a stack
  * @head: pointer to the beginning of the list
  * @counter: value to be added
  */

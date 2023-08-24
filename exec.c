@@ -29,7 +29,7 @@ int exec(char *str, stack_t **stack, unsigned int counter, FILE *file)
 	}
 	if (opst[i].opcode == NULL)
 	{
-		fprintf(stderr, "L%d: unknown instruction: %s\n", counter, drive.op);
+		fprintf(stderr, "L%d: unknown instruction %s\n", counter, drive.op);
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}
