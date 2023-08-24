@@ -12,8 +12,8 @@ void add_stack(stack_t **head, int n)
 	temp = *head;
 	if (new_node == NULL)
 	{
-		printf("Error\n");
-		exit(0);
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
 	}
 	if (temp)
 		temp->prev = new_node;

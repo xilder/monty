@@ -19,9 +19,15 @@ int main(int argc, char *argv[])
 
 	file = fopen(argv[1], "r");
 	if (argc != 2)
-		printf("FILE USAGE: monty file");
+	{
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
 	if (file == NULL)
-		printf("Unable to open file: %s\n", argv[1]);
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
 	else
 	{
 		drive.file = file;
@@ -32,6 +38,7 @@ int main(int argc, char *argv[])
 		}
 
 	}
+	free_stack(stack);
 	fclose(file);
 	return (0);
 }
