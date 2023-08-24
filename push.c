@@ -24,7 +24,7 @@ void f_push(stack_t **head, unsigned int counter)
 	}
 	if (flag == 1)
 	{
-		fprintf(stderr, "L%d: not an int\nUsage: push <int>", counter);
+		fprintf(stderr, "L%d: usage: push integer\n", counter);
 		fclose(drive.file);
 		free_stack(*head);
 		exit(EXIT_FAILURE);

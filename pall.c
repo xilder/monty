@@ -10,7 +10,7 @@ void f_pall(stack_t **head, unsigned int number)
 
 	if (tmp == NULL)
 	{
-		fprintf(stderr, "Line %d: Stack Underflow\n", number);
+		(void) number;
 		return;
 	}
 	while (tmp != NULL)
