@@ -1,54 +1,37 @@
 #include "monty.h"
-
 /**
-* execute - function that executes the opcode
-* @stack: head stack linked list
-* @counter: line count
-* @file: pointer to monty file stream
-* @content: line content
-*
-* Return: nothing
-*/
-int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
+ * exec - splits a string into an array
+ * @str: the string to be passed
+ * @stack: a pointer to the head of the stack
+ * @counter: the line number
+ * @file: pointer to the contents of the file
+ * Return: 0 if it passes and 1 if it fails
+ */
+int exec(char *str, stack_t **stack, unsigned int counter, FILE *file)
 {
 	instruction_t opst[] = {
-				{"push", f_push}, {"pall", f_pall}, {"pint", f_pint},
-				{"pop", f_pop},
-				{"swap", f_swap},
-				{"add", f_add},
-				{"nop", f_nop},
-				{"sub", f_sub},
-				{"div", f_div},
-				{"mul", f_mul},
-				{"mod", f_mod},
-				{"pchar", f_pchar},
-				{"pstr", f_pstr},
-				{"rotl", f_rotl},
-				{"rotr", f_rotr},
-				{"queue", f_queue},
-				{"stack", f_stack},
+				{"push", f_push},
+				{"pall", f_pall},
 				{NULL, NULL}
 				};
-	unsigned int i = 0;
-	char *op;
+	int i = 0;
 
-	op = strtok(content, " \n\t");
-	if (op && op[0] == '#')
-		return (0);
-	bus.arg = strtok(NULL, " \n\t");
-	while (opst[i].opcode && op)
+	drive.op = strtok(str, " \n\t");
+	drive.arg = strtok(NULL, " \n\t");
+	while (drive.op && opst[i].opcode != NULL)
 	{
-		if (strcmp(op, opst[i].opcode) == 0)
-		{	opst[i].f(stack, counter);
+		if (strcmp(drive.op, opst[i].opcode) == 0)
+		{
+			opst[i].f(stack, counter);
 			return (0);
 		}
 		i++;
 	}
-	if (op && opst[i].opcode == NULL)
-	{ fprintf(stderr, "L%d: unknown instruction %s\n", counter, op);
+	if (opst[i].opcode == NULL)
+	{
+		fprintf(stderr, "Line %d: Unknown instruction: %s\n", counter, drive.op);
 		fclose(file);
-		free(content);
-		free_stack(*stack);
-		exit(EXIT_FAILURE); }
+		exit(EXIT_FAILURE);
+	}
 	return (1);
 }
