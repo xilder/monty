@@ -12,7 +12,7 @@ void f_push(stack_t **head, unsigned int counter)
 
 	if (!drive.arg)
 	{
-		fprintf(stderr, "L%d: usage: push integer", counter);
+		fprintf(stderr, "L%d: usage: push integer\n", counter);
 		fclose(drive.file);
 		free_stack(*head);
 		exit(EXIT_FAILURE);

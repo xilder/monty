@@ -13,6 +13,7 @@ int exec(char *str, stack_t **stack, unsigned int counter, FILE *file)
 				{"push", f_push},
 				{"pall", f_pall},
 				{"pint", f_pint},
+				{"pop", f_pop},
 				{NULL, NULL}
 				};
 	int i = 0;
