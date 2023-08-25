@@ -47,6 +47,7 @@ typedef struct drive_s
 } drive_t;
 extern drive_t drive;
 int exec(char* str, stack_t** stack, unsigned int counter, FILE* file);
+void f_swap(stack_t **head, unsigned int counter);
 void f_pop(stack_t **head, unsigned int counter);
 void f_push(stack_t **head, unsigned int counter);
 void f_pall(stack_t **head, unsigned int number);
