@@ -18,7 +18,7 @@ void f_push(stack_t **head, unsigned int counter)
 		exit(EXIT_FAILURE);
 	}
 	if (drive.arg[0] == 45)
-			i++;
+		i++;
 	for (; drive.arg[i] != 0; i++)
 	{
 		if (drive.arg[i] > 57 || drive.arg[i] < 48)

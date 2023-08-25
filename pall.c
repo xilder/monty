@@ -11,7 +11,7 @@ void f_pall(stack_t **head, unsigned int number)
 	if (tmp == NULL)
 	{
 		(void) number;
-		return;
+		exit(EXIT_FAILURE);
 	}
 	while (tmp != NULL)
 	{

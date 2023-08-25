@@ -49,6 +49,7 @@ extern drive_t drive;
 int exec(char* str, stack_t** stack, unsigned int counter, FILE* file);
 void f_push(stack_t **head, unsigned int counter);
 void f_pall(stack_t **head, unsigned int number);
+void f_pint(stack_t **head, unsigned int counter);
 void add_stack(stack_t** head, int n);
 void free_stack(stack_t *head);
 #endif /* _MONTY_H_*/
