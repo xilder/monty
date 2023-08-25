@@ -12,11 +12,13 @@ void f_push(stack_t **head, unsigned int counter)
 
 	if (!drive.arg)
 	{
-		fprintf(stderr, "L%d: Usage: push <int>", counter);
+		fprintf(stderr, "L%d: usage: push integer", counter);
 		fclose(drive.file);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
+	if (drive.arg[0] == 45)
+			i++;
 	for (; drive.arg[i] != 0; i++)
 	{
 		if (drive.arg[i] > 57 || drive.arg[i] < 48)
