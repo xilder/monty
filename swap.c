@@ -12,7 +12,7 @@ void f_swap(stack_t **head, unsigned int counter)
 	tmp = *head;
 	if (tmp == NULL || tmp->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", counter);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", counter);
 		fclose(drive.file);
 		free_stack(*head);
 		exit(EXIT_FAILURE);

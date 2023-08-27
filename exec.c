@@ -15,12 +15,28 @@ int exec(char *str, stack_t **stack, unsigned int counter, FILE *file)
 				{"pint", f_pint},
 				{"pop", f_pop},
 				{"swap", f_swap},
+				{"add", f_add},
+				{"nop", f_nop},
+				{"sub", f_sub},
+				{"div", f_div},
+				{"mul", f_mul},
+				{"mod", f_mod},
+				{"pchar", f_pchar},
+				{"pstr", f_pstr},
+				{"rotl", f_rotl},
+				{"rotr", f_rotr},
+				{"stack", f_stack},
+				{"queue", f_queue},
 				{NULL, NULL}
 				};
 	int i = 0;
 
 	drive.op = strtok(str, " \n\t");
+	if (drive.op == NULL)
+		return (0);
 	drive.arg = strtok(NULL, " \n\t");
+	if (drive.op[0] == '#')
+		return (0);
 	while (drive.op && opst[i].opcode != NULL)
 	{
 		if (strcmp(drive.op, opst[i].opcode) == 0)

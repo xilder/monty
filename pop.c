@@ -5,7 +5,7 @@
  ** @counter: line count
  **
  ** Return: nothing
- * */
+ **/
 void f_pop(stack_t **head, unsigned int counter)
 {
 	stack_t *tmp;
@@ -21,4 +21,3 @@ void f_pop(stack_t **head, unsigned int counter)
 		*head = tmp->next;
 		free(tmp);
 }
-		

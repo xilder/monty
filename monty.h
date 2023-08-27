@@ -41,17 +41,30 @@ typedef struct drive_s
 {
 	FILE* file;
 	char* content;
-	char* op;
+	char *op;
 	char* arg;
-	int ls;
+	int sq;
 } drive_t;
 extern drive_t drive;
 int exec(char* str, stack_t** stack, unsigned int counter, FILE* file);
+void f_stack(stack_t **head, unsigned int counter);
+void f_queue(stack_t **head, unsigned int counter);
+void f_rotr(stack_t **head, unsigned int counter);
+void f_rotl(stack_t **head, unsigned int counter);
+void f_pstr(stack_t **head, unsigned int counter);
+void f_pchar(stack_t **head, unsigned int counter);
+void f_mod(stack_t **head, unsigned int counter);
+void f_mul(stack_t **head, unsigned int counter);
+void f_div(stack_t **head, unsigned int counter);
+void f_sub(stack_t **head, unsigned int counter);
+void f_nop(stack_t **head, unsigned int counter);
+void f_add (stack_t **head, unsigned int counter);
 void f_swap(stack_t **head, unsigned int counter);
 void f_pop(stack_t **head, unsigned int counter);
 void f_push(stack_t **head, unsigned int counter);
 void f_pall(stack_t **head, unsigned int number);
 void f_pint(stack_t **head, unsigned int counter);
 void add_stack(stack_t** head, int n);
+void add_queue(stack_t **head, int n);
 void free_stack(stack_t *head);
 #endif /* _MONTY_H_*/
