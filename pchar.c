@@ -24,6 +24,7 @@ void f_pchar(stack_t **head, unsigned int counter)
 		printf("%c\n", n);
 	else
 	{
+		fprintf(stderr, "L%i: can't pchar, value out of range", counter);
 		fclose(drive.file);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
