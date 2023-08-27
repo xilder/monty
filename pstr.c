@@ -23,7 +23,7 @@ void f_pstr(stack_t **head, unsigned int counter)
 			printf("\n");
 			fclose(drive.file);
 			free_stack(*head);
-			exit(EXIT_FAILURE);
+			return;
 		}
 		tmp = tmp->next;
 	}
