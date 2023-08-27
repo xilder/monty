@@ -18,7 +18,7 @@ void f_mul(stack_t **head, unsigned int counter)
 	}
 	if (length < 2)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", counter);
+		fprintf(stderr, "L%d: can't mul, stack too short\n", counter);
 		fclose(drive.file);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
