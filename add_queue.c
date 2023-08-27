@@ -12,14 +12,20 @@ void add_queue(stack_t **head, int n)
 	temp = *head;
 	if (new_node == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
+		printf("Error\n");
+		fclose(drive.file);
 		exit(EXIT_FAILURE);
 	}
-	while(temp->next)
-		temp = temp->next;
-
-	temp->next = new_node;
 	new_node->n = n;
 	new_node->next = NULL;
+	if (*head == NULL)
+	{
+		*head = new_node;
+		new_node->prev = NULL;
+		return;
+	}
+	while (temp->next != NULL)
+		temp = temp->next;
 	new_node->prev = temp;
+	temp->next = new_node;
 }

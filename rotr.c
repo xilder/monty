@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * rotr makes the last element the top one
+ * f_rotr - makes the last element the top one
  * @head: beginning of the stack
  * @counter: line counter
  */
@@ -19,6 +19,7 @@ void f_rotr(stack_t **head, unsigned int counter)
 	tmp = lst->next;
 	lst->next = NULL;
 	tmp->next = *head;
+	(*head)->prev = tmp;
 	*head = tmp;
 }
 

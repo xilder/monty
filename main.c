@@ -9,7 +9,7 @@
  * @argv: array of arguments passed
  * Return: ???
  */
-drive_t drive = {NULL, NULL, NULL, NULL, 0};
+drive_t drive = {NULL, NULL, NULL, 0};
 int main(int argc, char *argv[])
 {
 	FILE *file;

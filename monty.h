@@ -19,9 +19,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -34,19 +34,27 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/**
+ * struct drive_s - carries information concerning
+ * each line of code in the monty file
+ * @file: opens the file
+ * @op: determines which function to use
+ * @arg: stores the arguments on each line
+ * @sq: switches from stack to queue and vice versa
+ */
 typedef struct drive_s
 {
-	FILE* file;
-	char* content;
+	FILE *file;
 	char *op;
-	char* arg;
+	char *arg;
 	int sq;
 } drive_t;
 extern drive_t drive;
-int exec(char* str, stack_t** stack, unsigned int counter, FILE* file);
+int exec(char *str, stack_t **stack, unsigned int counter, FILE *file);
 void f_stack(stack_t **head, unsigned int counter);
 void f_queue(stack_t **head, unsigned int counter);
 void f_rotr(stack_t **head, unsigned int counter);
@@ -58,13 +66,13 @@ void f_mul(stack_t **head, unsigned int counter);
 void f_div(stack_t **head, unsigned int counter);
 void f_sub(stack_t **head, unsigned int counter);
 void f_nop(stack_t **head, unsigned int counter);
-void f_add (stack_t **head, unsigned int counter);
+void f_add(stack_t **head, unsigned int counter);
 void f_swap(stack_t **head, unsigned int counter);
 void f_pop(stack_t **head, unsigned int counter);
 void f_push(stack_t **head, unsigned int counter);
 void f_pall(stack_t **head, unsigned int number);
 void f_pint(stack_t **head, unsigned int counter);
-void add_stack(stack_t** head, int n);
+void add_stack(stack_t **head, int n);
 void add_queue(stack_t **head, int n);
 void free_stack(stack_t *head);
 #endif /* _MONTY_H_*/

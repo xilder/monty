@@ -34,6 +34,6 @@ void f_push(stack_t **head, unsigned int counter)
 	value = atoi(drive.arg);
 	if (drive.sq == 0)
 		add_stack(head, value);
-	else
+	if (drive.sq == 1)
 		add_queue(head, value);
 }
